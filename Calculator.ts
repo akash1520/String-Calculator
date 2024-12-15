@@ -1,5 +1,6 @@
 export class Calculator {
-    add(numbers: string):number {
-        return Number(numbers[0]) + Number(numbers[2]);
+    add(numbers: string): number {
+        const numbersArray = numbers.split(',').map(Number);
+        return numbersArray.reduce((sum, num) => sum + num, 0);
     }
 }
