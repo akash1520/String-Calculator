@@ -25,5 +25,9 @@ describe('Calculator', () => {
             expect(calculator.add('1,2')).toBe(3);
             expect(typeof (calculator.add('1,3'))).toBe('number');
         });
+
+        test('Accepts more than two numbers', () => {
+            expect(calculator.add('1,2,3')).toBe(6);
+        })
     });
 });
