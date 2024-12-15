@@ -40,5 +40,9 @@ describe('Calculator', () => {
                 expect(calculator.add('1\n2,3')).toBe(6);
             });
         });
+        
+        test('Throws an error for negative numbers', () => {
+            expect(() => calculator.add('-1,2')).toThrow('negative numbers not allowed -1');
+        });
     });
 });
