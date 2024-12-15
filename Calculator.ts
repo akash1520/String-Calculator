@@ -1,1 +1,3 @@
-export class Calculator {}
+export class Calculator {
+    add(){}
+}
