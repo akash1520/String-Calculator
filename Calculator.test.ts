@@ -20,5 +20,10 @@ describe('Calculator', () => {
             expect(() => calculator.add('')).not.toThrow();
             expect(() => calculator.add('1,2')).not.toThrow();
         });
+
+        test('Returns correct sum with correct type', () => {
+            expect(calculator.add('1,2')).toBe(3);
+            expect(typeof (calculator.add('1,3'))).toBe('number');
+        });
     });
 });
