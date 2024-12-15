@@ -1,15 +1,24 @@
 import * as Calculator from "./index";
 
-test("Calculator class exists", () => {
-  expect(Calculator.Calculator).toBeDefined();
-});
+describe('Calculator', () => {
+    let calculator: Calculator.Calculator;
 
-test("Calculator class has add method", () => {
-  expect(new Calculator.Calculator().add).toBeDefined();
-})
+    beforeEach(() => {
+        calculator = new Calculator.Calculator();
+    });
 
-test('Add method accepts a string as an argument', () => {
-  const calculator = new Calculator.Calculator();
-  expect(() => calculator.add('')).not.toThrow();
-  expect(() => calculator.add('1,2')).not.toThrow();
+    test("Calculator class exists", () => {
+        expect(Calculator.Calculator).toBeDefined();
+    });
+
+    test("Calculator class has add method", () => {
+        expect(calculator.add).toBeDefined();
+    });
+
+    describe('Add method', () => {
+        test('Accepts a string as an argument', () => {
+            expect(() => calculator.add('')).not.toThrow();
+            expect(() => calculator.add('1,2')).not.toThrow();
+        });
+    });
 });
