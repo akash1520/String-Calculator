@@ -1,3 +1,3 @@
 export class Calculator {
-    add(){}
+    add(numbers: string){}
 }
