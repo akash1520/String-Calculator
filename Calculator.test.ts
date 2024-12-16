@@ -48,6 +48,11 @@ describe('Calculator', () => {
         test('Throws an error with multiple negative numbers', () => {
             expect(() => calculator.add('-1,-2,3')).toThrow('negative numbers not allowed -1,-2');
         })
+
+        test('Number bigger than 1000 should be ignored', () => {
+            expect(calculator.add('//;\n1001;2;3')).toBe(5);
+            expect(calculator.add('//;\n2005;2;3')).toBe(5);
+        })
     });
 
     describe('getCalledCount method', () => {
