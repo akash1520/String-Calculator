@@ -19,4 +19,6 @@ export class Calculator {
         }
         return numbersArray.reduce((sum, num) => sum + num, 0);
     }
+
+    getCalledCount() {}
 }
