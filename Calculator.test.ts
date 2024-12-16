@@ -49,4 +49,10 @@ describe('Calculator', () => {
             expect(() => calculator.add('-1,-2,3')).toThrow('negative numbers not allowed -1,-2');
         })
     });
+
+    describe('getCalledCount method', () => {
+        test("Calculator class has getCalledCount method", () => {
+            expect(calculator.getCalledCount).toBeDefined();
+        });
+    });
 });
