@@ -11,12 +11,13 @@ export class Calculator {
             if (delimiterMatches) {
                 delimiter = delimiterMatches.map(match => 
                     match.replace(/[\[\]]/g, '')
-                ).join('|');
+                ).map(delim => delim.replace(/[.*+?^=!:${}()|\[\]\/\\]/g, "\\$&"))
+                 .join('|');
             } else {
                 delimiter = delimiterLine.slice(2);
             }
 
-            const numbersArray = numbersString.split(delimiter);
+            const numbersArray = numbersString.split(new RegExp(delimiter));
             return this.sumNumbers(numbersArray);
         }
         const numbersArray = numbers.replace(/\n/g, ',').split(',').map(Number);
