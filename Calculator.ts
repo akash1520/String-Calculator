@@ -1,5 +1,8 @@
 export class Calculator {
+    private callCount: number = 0;
+    
     add(numbers: string): number {
+        this.callCount++;
         if (numbers.startsWith('//')) {
             const [delimiterLine, numbersString] = numbers.split('\n');
             const delimiter = delimiterLine.slice(2);
@@ -20,5 +23,7 @@ export class Calculator {
         return numbersArray.reduce((sum, num) => sum + num, 0);
     }
 
-    getCalledCount() {}
+    getCalledCount(): number {
+        return this.callCount;
+    }
 }
