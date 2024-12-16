@@ -45,6 +45,13 @@ describe('Calculator', () => {
             test('Supports new line as delimiter', () => {
                 expect(calculator.add('1\n2,3')).toBe(6);
             });
+
+            test('Supports multiple custom delimiters of any length', () => {
+                expect(calculator.add('//[*][%]\n1*2%3')).toBe(6);
+                expect(calculator.add('//[***][%%%]\n1***2%%%3')).toBe(6);
+                expect(calculator.add('//[##][$$]\n1##2$$3')).toBe(6);
+            });
+            
         });
         
         test('Throws an error for negative numbers', () => {
