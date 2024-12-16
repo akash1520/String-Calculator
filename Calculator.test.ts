@@ -54,5 +54,18 @@ describe('Calculator', () => {
         test("Calculator class has getCalledCount method", () => {
             expect(calculator.getCalledCount).toBeDefined();
         });
+
+        test('getCalledCount returns number of times add was called', () => {
+            expect(calculator.getCalledCount()).toBe(0);
+    
+            calculator.add('1,2');
+            expect(calculator.getCalledCount()).toBe(1);
+    
+            calculator.add('3,4');
+            expect(calculator.getCalledCount()).toBe(2);
+    
+            calculator.add('');
+            expect(calculator.getCalledCount()).toBe(3);
+        });
     });
 });
