@@ -15,7 +15,7 @@ export class Calculator {
     }
 
     private sumNumbers(numberStrings: string[]): number {
-        const numbersArray = numberStrings.map(Number);
+        const numbersArray = numberStrings.map(Number).filter(num => num <= 1000);;
         const negatives = numbersArray.filter(num => num < 0);
         if (negatives.length > 0) {
             throw new Error(`negative numbers not allowed ${negatives.join(',')}`);
