@@ -44,5 +44,9 @@ describe('Calculator', () => {
         test('Throws an error for negative numbers', () => {
             expect(() => calculator.add('-1,2')).toThrow('negative numbers not allowed -1');
         });
+
+        test('Throws an error with multiple negative numbers', () => {
+            expect(() => calculator.add('-1,-2,3')).toThrow('negative numbers not allowed -1,-2');
+        })
     });
 });
