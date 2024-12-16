@@ -5,10 +5,19 @@ export class Calculator {
         this.callCount++;
         if (numbers.startsWith('//')) {
             const [delimiterLine, numbersString] = numbers.split('\n');
-            const delimiter = delimiterLine.slice(2);
+            const delimiterMatches = delimiterLine.match(/\[(.*?)\]/g);
+            let delimiter: string;
 
-            const numbersArray = numbersString.split(delimiter).map(Number);
-            return this.sumNumbers(numbersString.split(delimiter));
+            if (delimiterMatches) {
+                delimiter = delimiterMatches.map(match => 
+                    match.replace(/[\[\]]/g, '')
+                ).join('|');
+            } else {
+                delimiter = delimiterLine.slice(2);
+            }
+
+            const numbersArray = numbersString.split(delimiter);
+            return this.sumNumbers(numbersArray);
         }
         const numbersArray = numbers.replace(/\n/g, ',').split(',').map(Number);
         return this.sumNumbers(numbers.replace(/\n/g, ',').split(','));
